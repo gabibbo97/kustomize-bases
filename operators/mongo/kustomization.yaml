@@ -1,0 +1,6 @@
+resources:
+  - upstream/deploy/crds/mongodb.com_mongodb_crd.yaml
+  - upstream/deploy/operator.yaml
+  - upstream/deploy/role_binding.yaml
+  - upstream/deploy/role.yaml
+  - upstream/deploy/service_account.yaml

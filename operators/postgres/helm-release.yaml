@@ -1,0 +1,11 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: postgres-operator
+  namespace: postgres-operator
+spec:
+  chart:
+    git: https://github.com/zalando/postgres-operator.git
+    ref: v1.5.0
+    path: charts/postgres-operator
