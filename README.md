@@ -17,6 +17,7 @@ It's a little bit of humor sparkled on top of otherwise boring technology, feel 
 Prêt-à-kustomizer
 
 * [Ingress recipes](ingress/README.md)
+* [Storage recipes](storage/README.md)
 
 ## License
 

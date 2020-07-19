@@ -1,0 +1,18 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: local-path-provisioner
+  namespace: local-path-provisioner
+spec:
+  chart:
+    git: https://github.com/rancher/local-path-provisioner.git
+    ref: v0.0.14
+    path: deploy/chart
+  values:
+    storageClass:
+      crate: true
+    nodePathMap:
+      - node: DEFAULT_PATH_FOR_NON_LISTED_NODES
+        paths:
+          - /var/lib/local-path-provisioner
