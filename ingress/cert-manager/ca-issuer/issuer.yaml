@@ -1,0 +1,35 @@
+---
+apiVersion: cert-manager.io/v1alpha3
+kind: Certificate
+metadata:
+  name: bob-ca
+  namespace: cert-manager
+spec:
+  commonName: Bob personal CA
+  subject:
+    organizations:
+      - Bob primary organization
+      - Bob secondary organization
+    countries:
+      - Worldwide
+    provinces:
+      - Planet earth
+  duration: 10000d
+  ipAddresses:
+    - 127.0.0.1
+    - 10.0.0.1
+  secretName: bob-ca
+  issuerRef:
+    kind: ClusterIssuer
+    name: selfsigning
+  isCA: true
+  keySize: 521
+  keyAlgorithm: ecdsa
+---
+apiVersion: cert-manager.io/v1alpha3
+kind: ClusterIssuer
+metadata:
+  name: bob
+spec:
+  ca:
+    secretName: bob-ca

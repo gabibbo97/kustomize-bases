@@ -1,0 +1,5 @@
+bases:
+  - ../base
+
+patchesStrategicMerge:
+  - loadbalancer_ip.yaml

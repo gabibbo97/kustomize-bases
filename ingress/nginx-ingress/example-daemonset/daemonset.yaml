@@ -1,0 +1,15 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: ingress-nginx
+  namespace: ingress-nginx
+spec:
+  values:
+    controller:
+      reportNodeInternalIp: true
+      hostPort:
+        enabled: true
+      kind: DaemonSet
+      service:
+        type: ClusterIP
