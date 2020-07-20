@@ -1,0 +1,2 @@
+bases:
+  - https://github.com/kubernetes/kube-state-metrics.git?ref=v1.9.7

@@ -1,0 +1,30 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: prometheus
+spec:
+  serviceAccountName: prometheus
+  # Selectors
+  serviceMonitorSelector:
+    matchLabels:
+      g4b1bb097.dev/prometheus: 'true'
+  serviceMonitorNamespaceSelector: {}
+  podMonitorSelector:
+    matchLabels:
+      g4b1bb097.dev/prometheus: 'true'
+  podMonitorNamespaceSelector: {}
+  ruleSelector:
+    matchLabels:
+      g4b1bb097.dev/prometheus: 'true'
+  ruleNamespaceSelector: {}
+  # Prometheus settings
+  retention: 168h # One week
+  walCompression: true
+  # Storage
+  storage:
+    volumeClaimTemplate:
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 1Gi

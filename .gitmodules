@@ -1,3 +1,6 @@
 [submodule "operators/mongo/upstream"]
 	path = operators/mongo/upstream
 	url = https://github.com/mongodb/mongodb-kubernetes-operator.git
+[submodule "monitoring/kube-state-metrics/base/monitoring/prometheus-operator/base/upstream"]
+	path = monitoring/kube-state-metrics/base/monitoring/prometheus-operator/base/upstream
+	url = https://github.com/coreos/prometheus-operator.git

@@ -1,0 +1,5 @@
+commonLabels:
+  g4b1bb097.dev/prometheus: 'true'
+namespace: cert-manager
+resources:
+  - servicemonitor.yaml

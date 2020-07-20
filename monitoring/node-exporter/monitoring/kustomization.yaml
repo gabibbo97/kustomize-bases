@@ -1,0 +1,4 @@
+commonLabels:
+  g4b1bb097.dev/prometheus: 'true'
+resources:
+  - podmonitor.yaml

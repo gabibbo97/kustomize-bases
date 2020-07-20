@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: node-exporter
+spec:
+  template:
+    spec:
+      containers:
+        - name: node-exporter
+          image: quay.io/prometheus/node-exporter:latest
+          args:
+            - --collector.cpu.info
+            - --collector.interrupts
+            - --collector.mountstats
+            - --collector.processes
+            - --collector.systemd
+            - --path.procfs=/host/proc
+            - --path.rootfs=/host
+            - --path.sysfs=/host/sys
+          ports:
+            - { name: http, containerPort: 9100 }
+          volumeMounts:
+            - { name: host, mountPath: /host }
+            - { name: system-bus-socket, mountPath: /var/run/dbus/system_bus_socket }
+      volumes:
+        - name: host
+          hostPath:
+            path: /
+            type: Directory
+        - name: system-bus-socket
+          hostPath:
+            path: /var/run/dbus/system_bus_socket
+            type: Socket

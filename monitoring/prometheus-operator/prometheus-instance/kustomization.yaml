@@ -1,0 +1,4 @@
+resources:
+  - prometheus.yaml
+  - rbac.yaml
+  - servicemonitor.yaml
