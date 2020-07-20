@@ -1,0 +1,12 @@
+resources:
+  - deployment.yaml
+  - service.yaml
+images:
+  - name: registry
+    newTag: 2.7.1
+generatorOptions:
+  disableNameSuffixHash: true
+configMapGenerator:
+  - name: registry-config
+    files:
+      - config.yml

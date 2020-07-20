@@ -1,0 +1,29 @@
+version: 0.1
+storage:
+  delete:
+    enabled: true
+  maintenance:
+    uploadpurging:
+      enabled: true
+      age: 72h
+      interval: 24h
+      dryrun: false
+  s3:
+    accesskey: awsaccesskey
+    secretkey: awssecretkey
+    region: us-west-1
+    regionendpoint: http://s3.svc.local:8080
+    bucket: bucketname
+    secure: false
+  redirect:
+    disable: true
+middleware:
+  storage:
+    - name: redirect
+      options:
+        baseurl: http://s3.svc.example.com:8000
+http:
+  debug:
+    addr: ":5001"
+    prometheus:
+      enabled: true

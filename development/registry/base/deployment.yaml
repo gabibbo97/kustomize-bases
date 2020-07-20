@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: registry
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: registry
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: registry
+    spec:
+      enableServiceLinks: false
+      containers:
+        - name: registry
+          image: registry:latest
+          ports:
+            - { containerPort: 5000, name: http }
+            - { containerPort: 5001, name: metrics }
+          volumeMounts:
+            - { name: config, mountPath: '/etc/docker/registry' }
+          livenessProbe:
+            httpGet:
+              port: metrics
+              path: /debug/health
+          readinessProbe:
+            httpGet:
+              port: metrics
+              path: /debug/health
+      volumes:
+        - name: config
+          configMap:
+            name: registry-config

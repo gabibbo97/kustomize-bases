@@ -1,0 +1,13 @@
+bases:
+  - ../storage-filesystem
+resources:
+  - certificate.yaml
+  - ingress.yaml
+generatorOptions:
+  disableNameSuffixHash: true
+secretGenerator:
+  - name: registry-auth
+    literals:
+      # Generate with htpasswd -nb user password
+      - alice=$apr1$.JrlVnh7$RamCEv7WnmyX.JiotxyXy1 # alicePass
+      - bob=alice:$apr1$IClwXqML$.XD0MGsbOlawUkGD/abu.. # bobPass

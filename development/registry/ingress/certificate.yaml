@@ -1,0 +1,10 @@
+apiVersion: cert-manager.io/v1alpha3
+kind: Certificate
+metadata:
+  name: registry-tls
+spec:
+  commonName: Registry Certificate
+  secretName: registry-tls
+  issuerRef:
+    kind: ClusterIssuer
+    name: selfsigning

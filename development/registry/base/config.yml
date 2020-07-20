@@ -1,0 +1,15 @@
+version: 0.1
+storage:
+  delete:
+    enabled: true
+  maintenance:
+    uploadpurging:
+      enabled: true
+      age: 72h
+      interval: 24h
+      dryrun: false
+http:
+  debug:
+    addr: ":5001"
+    prometheus:
+      enabled: true

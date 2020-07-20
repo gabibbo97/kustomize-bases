@@ -1,0 +1,9 @@
+bases:
+  - ../base
+generatorOptions:
+  disableNameSuffixHash: true
+configMapGenerator:
+  - name: registry-config
+    behavior: replace
+    files:
+      - config.yml

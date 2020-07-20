@@ -16,6 +16,7 @@ It's a little bit of humor sparkled on top of otherwise boring technology, feel 
 
 Prêt-à-kustomizer
 
+* [Development recipes](development/README.md)
 * [Ingress recipes](ingress/README.md)
 * [Operator recipes](operator/README.md)
 * [Storage recipes](storage/README.md)

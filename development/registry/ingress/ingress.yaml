@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: registry
+  annotations:
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-secret: registry-auth
+    nginx.ingress.kubernetes.io/auth-secret-type: auth-map
+    nginx.ingress.kubernetes.io/auth-realm: Registry authentication
+    nginx.ingress.kubernetes.io/proxy-body-size: '0'
+spec:
+  rules:
+    - host: registry.example.com
+      http:
+        paths:
+          - path: '/'
+            backend:
+              serviceName: registry
+              servicePort: 80
+  tls:
+    - hosts:
+        - registry.example.com
+      secretName: registry-tls
