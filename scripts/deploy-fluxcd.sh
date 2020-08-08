@@ -28,11 +28,12 @@ fi
 ensureChart fluxcd/flux v1.4.0
 helm upgrade fluxcd fluxcd/flux \
   --atomic --cleanup-on-fail --create-namespace --install \
-  --version v1.4.0 \
+  --version v1.4.1 \
   --namespace fluxcd \
   --set git.url=git@gitlab.com:studio-longo/manifests.git \
   --set git.secretName=fluxcd-ssh \
   --set prometheus.enabled=true \
+  --set manifestGeneration=true \
   --set syncGarbageCollection.enabled=true
 
 ensureChart fluxcd/helm-operator 1.1.0
