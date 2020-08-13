@@ -7,7 +7,7 @@ metadata:
 spec:
   chart:
     git: https://github.com/rancher/local-path-provisioner.git
-    ref: v0.0.14
+    ref: v0.0.15
     path: deploy/chart
   values:
     storageClass:
